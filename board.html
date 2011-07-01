@@ -1,9 +1,9 @@
 <!doctype html>
 <html>
-	<head>
-		<title>JS1k demo submission</title>
-	</head>
-	<body>
+  <head>
+    <title>JS1k demo submission</title>
+  </head>
+  <body>
     <script>function l(){return Math.floor(Math.random()*c)}function k(a,b,h,k){++f,function l(a,b){if(a<0||a>=c||b<0||b>=c)--f||(--e,i());else{var m=g.children[b].children[a];m.className=="o"?(m.className="",--d,--f,i(),j(a,b)):(m.className="b",setTimeout(function(){m.className="",h!=0?l(a+h,b):l(a,b+k)},25))}}(a,b)}function j(a,b){k(a,b,-1,0),k(a,b,1,0),k(a,b,0,-1),k(a,b,0,1)}function i(){h.innerHTML=!e&&d?"You Lose!":d?"Click to fire! ["+e+" : "+d+"]":"You win!"}var a=document,b=a.body,c=50,d=50,e=8,f=0;b.innerHTML="<style>td{padding:0;border:1px solid #444;width:8px;height:8px}td:hover{background:#888}.b{background:#800}.o{background:#00C}</style><h2></h2><table>"+Array(c+1).join("<tr>"+Array(c+1).join("<td>")+"</tr>")+"</table>";var g=b.children[2].children[0],h=b.children[1];g.onclick=function(a){var b=a.target;b.tagName=="TD"&&e&&d&&!f&&j(b.cellIndex,b.parentNode.rowIndex)};for(var m=0;m<50;++m)for(;;){var n=g.children[l()].children[l()];if(n.className!="o"){n.className="o";break}}i()</script>
-	</body>
+  </body>
 </html>
