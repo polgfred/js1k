@@ -1,8 +1,5 @@
 var doc = document,
     body = doc.body,
-    children = 'children',
-    className = 'className',
-    innerHTML = 'innerHTML',
     size = 50,
     pieces = 50,
     moves = 8,
@@ -21,40 +18,36 @@ these styles are perty but too expensive:
 //'.o div{background:#F80}';
 */
 
-body[innerHTML] =
+body.innerHTML =
   '<style>' +
   'td{padding:0;border:1px solid #444;width:8px;height:8px}' +
   'td:hover{background:#888}' +
   '.b{background:#800}' +
   '.o{background:#00C}' +
   '</style>' +
+  '<h2></h2>' +
   '<table>' +
   Array(size + 1).join('<tr>' + Array(size + 1).join('<td>') + '</tr>') +
-  '</table>' +
-  '<h2></h2>'
+  '</table>';
 
-var board = body[children][1][children][0],
-    counter = body[children][2];
+var board = body.children[2].children[0],
+    counter = body.children[1];
 
-body.onclick = function(event) {
+board.onclick = function(event) {
   var cell = event.target;
 
   if(cell.tagName == 'TD') {
-    if (moves > 0 && pieces > 0 && bullets == 0) {
+    if (moves && pieces && !bullets) {
       fireBullets(cell.cellIndex, cell.parentNode.rowIndex);
     }
   }
 }
 
-function random() {
-  return Math.floor(Math.random() * size);
-}
-
 function updateStatus() {
-  counter[innerHTML] = (
-    moves == 0 && pieces > 0 ? 'LOSE' : (
-      pieces == 0 ? 'WIN' :
-      moves + ' : ' + pieces));
+  counter.innerHTML = (
+    !moves && pieces ? 'You Lose!' : (
+      !pieces ? 'You win!' :
+      'Click to fire! [' + moves + ' : ' + pieces + ']'));
 }
 
 function fireBullets(x, y) {
@@ -69,23 +62,23 @@ function fireBullet(x, y, dx, dy) {
 
   (function moveBullet(x, y) {
     if (x < 0 || x >= size || y < 0 || y >= size) {
-      if (--bullets == 0) {
+      if (!--bullets) {
         --moves;
         updateStatus();
       }
     } else {
-      var cell = board[children][y][children][x];
+      var cell = board.children[y].children[x];
 
-      if (cell[className] == 'o') {
-        cell[className] = '';
+      if (cell.className == 'o') {
+        cell.className = '';
         --pieces;
         --bullets;
         updateStatus();
         fireBullets(x, y);
       } else {
-        cell[className] = 'b';
+        cell.className = 'b';
         setTimeout(function() {
-          cell[className] = '';
+          cell.className = '';
           if (dx != 0) {
             moveBullet(x + dx, y);
           } else {
@@ -97,11 +90,16 @@ function fireBullet(x, y, dx, dy) {
   }(x, y));
 }
 
+function random() {
+  return Math.floor(Math.random() * size);
+}
+
 for (var i = 0; i < 50; ++i) {
   for (;;) {
-    var cell = board[children][random()][children][random()];
-    if (cell[className] != 'o') {
-      cell[className] = 'o';
+    var cell = board.children[random()].children[random()];
+
+    if (cell.className != 'o') {
+      cell.className = 'o';
       break;
     }
   }
