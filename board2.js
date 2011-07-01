@@ -40,7 +40,9 @@ body.onclick = function(event) {
   var cell = event.target;
 
   if(cell.tagName == 'TD') {
-    fireBullets(cell.cellIndex, cell.parentNode.rowIndex);
+    if (moves > 0 && pieces > 0 && bullets == 0) {
+      fireBullets(cell.cellIndex, cell.parentNode.rowIndex);
+    }
   }
 }
 
