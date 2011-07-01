@@ -94,7 +94,7 @@ function random() {
   return Math.floor(Math.random() * size);
 }
 
-for (var i = 0; i < 50; ++i) {
+for (var i = 0; i < pieces; ++i) {
   for (;;) {
     var cell = board.children[random()].children[random()];
 
