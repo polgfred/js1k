@@ -1,0 +1,9 @@
+<!doctype html>
+<html>
+	<head>
+		<title>JS1k demo submission</title>
+	</head>
+	<body>
+    <script>function o(a,b,e,k){++i,function l(a,b){if(a<0||a>=f||b<0||b>=f)--i==0&&(--h,m());else{var o=j[c][b][c][a];o[d]=="o"?(o[d]="",--g,--i,m(),n(a,b)):(o[d]="b",setTimeout(function(){o[d]="",e!=0?l(a+e,b):l(a,b+k)},25))}}(a,b)}function n(a,b){o(a,b,-1,0),o(a,b,1,0),o(a,b,0,-1),o(a,b,0,1)}function m(){k[e]=h==0&&g>0?"LOSE":g==0?"WIN":h+" : "+g}function l(){return Math.floor(Math.random()*f)}var a=document,b=a.body,c="children",d="className",e="innerHTML",f=50,g=50,h=8,i=0;b[e]="<style>td{padding:0;border:1px solid #444;width:8px;height:8px}td:hover{background:#888}.b{background:#800}.o{background:#00C}</style><table>"+Array(f+1).join("<tr>"+Array(f+1).join("<td>")+"</tr>")+"</table>"+"<h2></h2>";var j=b[c][1][c][0],k=b[c][2];b.onclick=function(a){var b=a.target;b.tagName=="TD"&&n(b.cellIndex,b.parentNode.rowIndex)};for(var p=0;p<50;++p)for(;;){var q=j[c][l()][c][l()];if(q[d]!="o"){q[d]="o";break}}m()</script>
+	</body>
+</html>

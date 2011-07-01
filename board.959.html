@@ -1,0 +1,9 @@
+<!doctype html>
+<html>
+	<head>
+		<title>JS1k demo submission</title>
+	</head>
+	<body>
+    <script>function p(a,b,e,g){++k,function l(a,b){if(a<0||a>=h||b<0||b>=h)--k==0&&(--j,n());else{var m=f[c][b][c][a];m[d]=="o"?(m[d]="",--i,--k,n(),o(a,b)):(m[d]="b",setTimeout(function(){m[d]="",e!=0?l(a+e,b):l(a,b+g)},25))}}(a,b)}function o(a,b){p(a,b,-1,0),p(a,b,1,0),p(a,b,0,-1),p(a,b,0,1)}function n(){g.innerHTML=j==0&&i>0?"LOSE":i==0?"WIN":j+" : "+i}function m(a,b){for(var c=0;c<a;++c)b(c)}function l(){return Math.floor(Math.random()*h)}function e(b,c){var d=a.createElement(c);b.appendChild(d);return d}var a=document,b=a.body,c="children",d="className";b.removeChild(b[c][0]),e(b,"style").innerHTML="td{padding:0;border:1px solid #444;width:8px;height:8px}td:hover{background:#888}.b{background:#800}.o{background:#00C}";var f=e(b,"table"),g=e(b,"h2"),h=50,i=50,j=8,k=0;m(h,function(a){var b=e(f,"tr");m(h,function(c){e(b,"td").onclick=function(){j>0&&i>0&&k==0&&o(c,a)}})}),m(i,function(){for(;;){var a=f[c][l()][c][l()];if(a[d]!="o"){a[d]="o";break}}}),n()</script>
+	</body>
+</html>
